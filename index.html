@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}</style>
+</head>
+<body>
+<title>YT Global Inc.</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="YT Global Inc. is an IT consulting firm based in Wilmington, Delaware.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: contact bar, header with nav and one call to action, full-width video hero, then ruled sections (who we are, practices by category, industries, method, careers, contact, footer). The one bold move is the looping network video behind the hero. */
+:root {
+  --bg: #F2F5F4;
+  --surface: #E7EDEC;
+  --fg: #10242B;
+  --muted: #4A5F66;
+  --line: #C5D1D3;
+  --accent: #0A5C6B;
+  --accent-fg: #FFFFFF;
+  --signal: #D9531E;
+  --band-bg: #0F3A42;
+  --band-fg: #EAF3F3;
+  --band-muted: #A9C2C6;
+  --field-bg: #FFFFFF;
+  --band-line: rgba(169, 194, 198, 0.28);
+  --hero-bg: #070B22;
+  --hero-fg: #F1F7F7;
+  --hero-muted: #B7CED2;
+  --hero-line: rgba(183, 206, 210, 0.35);
+  --hero-scrim: linear-gradient(90deg, rgba(5, 8, 28, 0.80) 0%, rgba(5, 8, 28, 0.52) 55%, rgba(5, 8, 28, 0.12) 100%);
+  --hero-scrim-flat: rgba(5, 8, 28, 0.6);
+  --font-display: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --gutter: clamp(16px, 4vw, 40px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B1A1F;
+    --surface: #112329;
+    --fg: #E4EDEE;
+    --muted: #9FB3B8;
+    --line: #25393F;
+    --accent: #5CC6D6;
+    --accent-fg: #06232A;
+    --signal: #FF8A57;
+    --band-bg: #12323A;
+    --band-fg: #E8F1F2;
+    --band-muted: #A5BEC3;
+    --field-bg: #0B1A1F;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B1A1F;
+  --surface: #112329;
+  --fg: #E4EDEE;
+  --muted: #9FB3B8;
+  --line: #25393F;
+  --accent: #5CC6D6;
+  --accent-fg: #06232A;
+  --signal: #FF8A57;
+  --band-bg: #12323A;
+  --band-fg: #E8F1F2;
+  --band-muted: #A5BEC3;
+  --field-bg: #0B1A1F;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { font-family: var(--font-display); margin: 0; text-wrap: balance; line-height: 1.12; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.wrap {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+.section { padding-block: clamp(48px, 8vw, 96px); }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+h2 { font-size: clamp(1.75rem, 3.6vw, 2.5rem); font-weight: 700; letter-spacing: -0.015em; }
+
+/* Header */
+.top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; padding-block: 18px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; letter-spacing: -0.01em; }
+.brand small { font-weight: 500; font-size: 0.8125rem; color: var(--muted); letter-spacing: 0; align-self: flex-end; padding-bottom: 3px; }
+.brand svg { color: var(--accent); flex: none; }
+.cta { order: 2; margin-left: auto; }
+.tabs {
+  order: 3; flex: 1 0 100%; display: flex; gap: 4px 26px; overflow-x: auto; border-top: 1px solid var(--line); padding-top: 4px;
+  font-family: var(--font-display); font-weight: 500; font-size: 0.9375rem; scrollbar-width: none;
+}
+.tabs a { text-decoration: none; padding: 10px 0; white-space: nowrap; border-bottom: 2px solid transparent; }
+.tabs a:hover, .tabs a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
+@media (min-width: 900px) {
+  .tabs { order: 2; flex: 1 1 auto; justify-content: flex-end; border-top: 0; padding-top: 0; margin-left: auto; }
+  .cta { order: 3; margin-left: 0; }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px;
+  border-radius: 6px; font-family: var(--font-display); font-weight: 700; font-size: 0.9375rem;
+  text-decoration: none; cursor: pointer; border: 1.5px solid transparent;
+}
+.btn-primary { background: var(--accent); color: var(--accent-fg); }
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-ghost { border-color: var(--line); color: var(--fg); background: transparent; }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Video hero */
+.hero { position: relative; overflow: hidden; background: var(--hero-bg); color: var(--hero-fg); isolation: isolate; }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.hero-scrim { position: absolute; inset: 0; background: var(--hero-scrim); z-index: -1; }
+@media (max-width: 759px) { .hero-scrim { background: var(--hero-scrim-flat); } }
+.hero-inner { padding-block: clamp(56px, 9vw, 112px) 0; text-shadow: 0 1px 16px var(--hero-bg); }
+.hero .eyebrow { color: var(--hero-muted); }
+.hero h1 {
+  font-size: clamp(2.375rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  max-width: 19ch;
+  margin-top: 18px;
+}
+.lede { max-width: 58ch; margin-top: 24px; font-size: clamp(1.0625rem, 1.6vw, 1.25rem); color: var(--hero-fg); }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.hero .btn-primary { background: var(--hero-fg); color: var(--hero-bg); }
+.hero .btn-ghost { border-color: var(--hero-muted); color: var(--hero-fg); }
+.hero .btn-ghost:hover { border-color: var(--hero-fg); color: var(--hero-fg); }
+.hero :focus-visible { outline-color: var(--hero-fg); }
+.pillars { list-style: none; margin: clamp(40px, 7vw, 80px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0 32px; }
+.pillars li { border-top: 1px solid var(--hero-line); padding-block: 20px 28px; min-width: 0; }
+.pillars h3 { font-size: 1.0625rem; font-weight: 700; }
+.pillars p { margin-top: 6px; font-size: 0.9375rem; color: var(--hero-muted); }
+.hero-tools { display: flex; justify-content: flex-end; padding-bottom: 14px; }
+.vid-toggle {
+  min-height: 34px; padding: 0 12px; border-radius: 6px; border: 1px solid var(--hero-line); background: transparent;
+  color: var(--hero-muted); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.04em; cursor: pointer;
+}
+.vid-toggle:hover { color: var(--hero-fg); border-color: var(--hero-fg); }
+
+/* Who we are */
+.about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 32px 64px; align-items: start; }
+@media (max-width: 859px) { .about-grid { grid-template-columns: minmax(0, 1fr); } }
+.about-grid h2 { margin-top: 12px; }
+.about-copy { display: grid; gap: 16px; max-width: 62ch; }
+
+/* Practices by category */
+.section-head { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin-bottom: 40px; max-width: 62ch; }
+.section-head p { color: var(--muted); }
+.svc-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 48px 40px; }
+.svc-group { min-width: 0; }
+.svc-group > h3 {
+  font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent); padding-bottom: 12px; border-bottom: 2px solid var(--accent);
+}
+.svc-group ul { list-style: none; margin: 0; padding: 0; }
+.svc-group li { padding-block: 24px; border-bottom: 1px solid var(--line); }
+.svc-group h4 { font-size: 1.25rem; font-weight: 700; }
+.svc-group li p { margin-top: 8px; color: var(--muted); }
+.svc-group .scope { margin-top: 12px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.03em; color: var(--accent); }
+
+/* Industries */
+.band-soft { background: var(--surface); }
+.ind-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 40px 32px; list-style: none; margin: 0; padding: 0; }
+.ind { padding-top: 18px; border-top: 1px solid var(--fg); min-width: 0; }
+.ind h3 { font-size: 1.3125rem; font-weight: 700; }
+.ind p { margin-top: 10px; color: var(--muted); }
+.ind .tag { margin-top: 14px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); }
+
+/* Phases */
+.phase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 40px 32px; list-style: none; margin: 0; padding: 0; }
+.phase { min-width: 0; }
+.phase .eyebrow { color: var(--accent); }
+.phase h3 { font-size: 1.5rem; font-weight: 700; margin-top: 8px; }
+.phase p { margin-top: 10px; color: var(--muted); }
+
+/* Careers */
+.join { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 64px; align-items: center; }
+@media (max-width: 859px) { .join { grid-template-columns: minmax(0, 1fr); } }
+.join p { max-width: 52ch; }
+.join code { font-family: var(--font-mono); font-size: 1rem; overflow-wrap: anywhere; color: var(--accent); }
+
+
+/* Footer (also the contact block) */
+footer { background: var(--band-bg); color: var(--band-fg); padding-block: 56px 28px; }
+.foot-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 36px 32px; }
+@media (max-width: 859px) { .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 479px) { .foot-grid { grid-template-columns: minmax(0, 1fr); } }
+footer h3 { font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--band-muted); margin-bottom: 14px; }
+footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+footer a { text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+footer :focus-visible { outline-color: var(--band-fg); }
+footer address { font-style: normal; line-height: 1.75; overflow-wrap: anywhere; }
+footer .brand svg { color: var(--band-fg); }
+footer .brand small { color: var(--band-muted); }
+.foot-note { color: var(--band-muted); margin-top: 14px; max-width: 34ch; font-size: 0.9375rem; }
+.foot-base { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--band-line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; color: var(--band-muted); font-size: 0.9375rem; }
+</style>
+
+<header class="wrap top">
+  <a class="brand" href="#home" aria-label="YT Global Inc. home">
+    <svg width="30" height="30" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="14" cy="14" r="12" fill="none"/><ellipse cx="14" cy="14" rx="5" ry="12" fill="none"/><path d="M2 14h24" fill="none"/></svg>
+    <span>YT Global</span><small>Inc.</small>
+  </a>
+  <nav class="tabs" aria-label="Primary">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#industries">Industries</a>
+    <a href="#approach">Approach</a>
+    <a href="#careers">Careers</a>
+  </nav>
+  <a class="btn btn-primary cta" href="#contact">Contact us</a>
+</header>
+
+<main id="top">
+  <section class="hero" data-view="home" aria-label="Introduction">
+    <video id="bg-video" class="hero-video" autoplay muted loop playsinline preload="auto" poster="hero-poster.jpg" aria-hidden="true" tabindex="-1">
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-scrim"></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow">IT consulting</p>
+      <h1>IT consulting built around your business.</h1>
+      <p class="lede">YT Global Inc. is an IT consulting firm. We help organizations plan, build and support the technology they rely on every day.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#contact">Start a conversation</a>
+        <a class="btn btn-ghost" href="#services">Explore our services</a>
+      </div>
+      <ul class="pillars">
+        <li>
+          <h3>Next-generation solutions</h3>
+          <p>Modern architecture that grows with your organization.</p>
+        </li>
+        <li>
+          <h3>Flexible delivery</h3>
+          <p>Onsite, remote or hybrid, matched to the project.</p>
+        </li>
+        <li>
+          <h3>Trusted partnership</h3>
+          <p>Plain communication, honest estimates, one point of contact.</p>
+        </li>
+        <li>
+          <h3>Your success</h3>
+          <p>We judge the work by what your teams can do afterward.</p>
+        </li>
+      </ul>
+      <div class="hero-tools">
+        <button type="button" class="vid-toggle" id="vid-toggle">Pause background</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="wrap section" data-view="home">
+    <div class="about-grid">
+      <div>
+        <p class="eyebrow">Who we are</p>
+        <h2>A consulting firm that pairs technical depth with business context.</h2>
+      </div>
+      <div class="about-copy">
+        <p>YT Global Inc. is an IT consulting firm based in Wilmington, Delaware. Our consultants have worked in healthcare, public health, insurance and technology, where data has to be accurate, traceable and secure.</p>
+        <p>We help clients close the gap between what their systems could do and what they do today. That means clear designs, working increments and documentation your own staff can use after we leave.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="wrap section" data-view="home" style="padding-top: 0;">
+    <div class="section-head">
+      <p class="eyebrow">Services</p>
+      <h2>Consulting practices for every layer of your technology.</h2>
+      <p>Most engagements combine two or three practices.</p>
+    </div>
+    <div class="svc-groups">
+      <div class="svc-group">
+        <h3>Cloud and infrastructure</h3>
+        <ul>
+          <li>
+            <h4>Cloud services</h4>
+            <p>We plan and carry out the move of applications and data to the cloud, then help you scale, secure and monitor them. You receive a target design, a migration plan and cost controls before anything moves.</p>
+            <p class="scope">Migration &middot; Architecture &middot; Cost control</p>
+          </li>
+          <li>
+            <h4>IT support and managed services</h4>
+            <p>Onsite and remote support for backup, recovery, upgrades and troubleshooting, with runbooks your own staff can follow.</p>
+            <p class="scope">Monitoring &middot; Recovery &middot; Upgrades</p>
+          </li>
+        </ul>
+      </div>
+      <div class="svc-group">
+        <h3>Data and analytics</h3>
+        <ul>
+          <li>
+            <h4>Data engineering</h4>
+            <p>Pipelines that load, validate and reconcile data on a schedule. Each one is monitored, logged and safe to rerun after a failure.</p>
+            <p class="scope">Integration &middot; Quality &middot; Automation</p>
+          </li>
+          <li>
+            <h4>Data warehousing and analytics</h4>
+            <p>Warehouse and lakehouse designs that give analysts one agreed version of the data, built to fit your volumes and budget.</p>
+            <p class="scope">Modeling &middot; Warehousing &middot; Big data</p>
+          </li>
+          <li>
+            <h4>Business intelligence and reporting</h4>
+            <p>Dashboards and reports that finance, operations and program teams open every day, with metric definitions written down so numbers match.</p>
+            <p class="scope">Dashboards &middot; Metrics &middot; Self-service</p>
+          </li>
+        </ul>
+      </div>
+      <div class="svc-group">
+        <h3>Applications and automation</h3>
+        <ul>
+          <li>
+            <h4>Custom application development</h4>
+            <p>Web and mobile applications, from small internal tools to large enterprise systems, built so your own team can maintain them.</p>
+            <p class="scope">Web &middot; Mobile &middot; Enterprise</p>
+          </li>
+          <li>
+            <h4>Integration and automation</h4>
+            <p>Connections between your systems and automated deployment, so data moves on its own and a release becomes a routine event.</p>
+            <p class="scope">Interfaces &middot; Scheduling &middot; Deployment</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries" class="band-soft" data-view="industries">
+    <div class="wrap section">
+      <div class="section-head">
+        <p class="eyebrow">Industries</p>
+        <h2>Regulated data, handled by people who have worked with it.</h2>
+      </div>
+      <ul class="ind-grid">
+        <li class="ind">
+          <h3>Healthcare</h3>
+          <p>Claims, clinical and operational data, handled with the access controls those records require.</p>
+          <p class="tag">Claims &middot; Clinical &middot; Operations</p>
+        </li>
+        <li class="ind">
+          <h3>Public health and government</h3>
+          <p>Surveillance, program and benefits data moved onto platforms that agencies can maintain and audit.</p>
+          <p class="tag">Surveillance &middot; Benefits &middot; Reporting</p>
+        </li>
+        <li class="ind">
+          <h3>Insurance</h3>
+          <p>Policy, claims and finance data consolidated for reporting, analytics and regulatory needs.</p>
+          <p class="tag">Policy &middot; Claims &middot; Finance</p>
+        </li>
+        <li class="ind">
+          <h3>Technology</h3>
+          <p>Product and platform engineering for software teams that need reliable systems behind their features.</p>
+          <p class="tag">Platforms &middot; Telemetry &middot; Analytics</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="approach" class="wrap section" data-view="approach">
+    <div class="section-head">
+      <p class="eyebrow">Approach</p>
+      <h2>Four phases, each with something you can review.</h2>
+    </div>
+    <ol class="phase-grid">
+      <li class="phase">
+        <p class="eyebrow">Phase 1</p>
+        <h3>Assess</h3>
+        <p>We inventory sources, volumes, owners and current pain points, and agree with you on what success looks like.</p>
+      </li>
+      <li class="phase">
+        <p class="eyebrow">Phase 2</p>
+        <h3>Design</h3>
+        <p>We draft the target architecture, data model, security approach and cost estimate for your review.</p>
+      </li>
+      <li class="phase">
+        <p class="eyebrow">Phase 3</p>
+        <h3>Build</h3>
+        <p>We deliver in working increments, tested in a separate environment before anything reaches production.</p>
+      </li>
+      <li class="phase">
+        <p class="eyebrow">Phase 4</p>
+        <h3>Run</h3>
+        <p>We hand over documentation and runbooks, or stay on to operate the platform alongside your team.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="careers" class="band-soft" data-view="careers">
+    <div class="wrap section">
+      <div class="join">
+        <div>
+          <p class="eyebrow">Careers</p>
+          <h2 style="margin-top: 12px;">Join our team.</h2>
+        </div>
+        <div>
+          <p>We are glad to hear from experienced consultants and engineers. Send your resume and a short note about the work you do best.</p>
+          <p style="margin-top: 14px;"><code>info@ytglobalnetwork.com</code></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#home" aria-label="YT Global Inc. home">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="14" cy="14" r="12" fill="none"/><ellipse cx="14" cy="14" rx="5" ry="12" fill="none"/><path d="M2 14h24" fill="none"/></svg>
+          <span>YT Global</span><small>Inc.</small>
+        </a>
+        <p class="foot-note">IT consulting.</p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#services">Cloud and infrastructure</a></li>
+          <li><a href="#services">Data and analytics</a></li>
+          <li><a href="#services">Applications and automation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#about">Who we are</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#careers">Careers</a></li>
+        </ul>
+      </div>
+      <div id="contact">
+        <h3>Contact us</h3>
+        <address>YT Global Inc.<br>820 W 10th Street<br>Wilmington, DE 19801<br><a href="tel:+18082718366">(808) 271-8366</a><br><a href="mailto:info@ytglobalnetwork.com">info@ytglobalnetwork.com</a></address>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>&copy; 2026 YT Global Inc. All rights reserved.</p>
+      <a href="#contact">Contact us</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var vid = document.getElementById('bg-video');
+  var tog = document.getElementById('vid-toggle');
+  var tabs = document.querySelectorAll('.tabs a');
+  var panels = document.querySelectorAll('[data-view]');
+  var VIEWS = ['industries', 'approach', 'careers'];
+  var HOME_ANCHORS = ['about', 'services'];
+  var current = 'home';
+  var active = 'home';
+
+  function route(first) {
+    var h = (location.hash || '').replace('#', '');
+    var jump = null;
+    if (VIEWS.indexOf(h) > -1) { current = h; active = h; }
+    else if (HOME_ANCHORS.indexOf(h) > -1) { current = 'home'; active = h; jump = h; }
+    else if (h === 'contact') { jump = 'contact'; }
+    else { current = 'home'; active = 'home'; }
+    for (var i = 0; i < panels.length; i++) {
+      panels[i].hidden = panels[i].getAttribute('data-view') !== current;
+    }
+    for (var j = 0; j < tabs.length; j++) {
+      if (tabs[j].getAttribute('href') === '#' + active) { tabs[j].setAttribute('aria-current', 'page'); }
+      else { tabs[j].removeAttribute('aria-current'); }
+    }
+    var el = jump ? document.getElementById(jump) : null;
+    if (el) { el.scrollIntoView(); }
+    else if (!first || h) { window.scrollTo(0, 0); }
+  }
+  window.addEventListener('hashchange', function () { route(false); });
+  route(true);
+
+  function label(playing) { tog.textContent = playing ? 'Pause background' : 'Play background'; }
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) {
+    vid.removeAttribute('autoplay');
+    try { vid.pause(); } catch (e) {}
+    label(false);
+  } else {
+    label(true);
+    var p = vid.play();
+    if (p && p.catch) { p.catch(function () { label(false); }); }
+  }
+  tog.addEventListener('click', function () {
+    if (vid.paused) {
+      var q = vid.play();
+      if (q && q.catch) { q.catch(function () {}); }
+      label(true);
+    } else {
+      vid.pause();
+      label(false);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
