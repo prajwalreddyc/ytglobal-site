@@ -207,6 +207,30 @@ h2 { font-size: clamp(1.75rem, 3.6vw, 2.5rem); font-weight: 700; letter-spacing:
 .join code { font-family: var(--font-mono); font-size: 1rem; overflow-wrap: anywhere; color: var(--accent); }
 
 
+/* Contact page */
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 48px 64px; align-items: start; }
+@media (max-width: 859px) { .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; } }
+.contact-lead { margin-top: 18px; color: var(--muted); max-width: 44ch; }
+.contact-details { margin-top: 36px; display: grid; gap: 24px; }
+.contact-details p:not(.eyebrow), .contact-details address { margin-top: 6px; font-style: normal; overflow-wrap: anywhere; }
+.contact-details a { text-decoration: none; }
+.contact-details a:hover { color: var(--accent); text-decoration: underline; }
+form { display: grid; gap: 16px; min-width: 0; }
+.row2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 559px) { .row2 { grid-template-columns: minmax(0, 1fr); } }
+label { display: grid; gap: 6px; font-family: var(--font-display); font-weight: 500; font-size: 0.875rem; }
+input, textarea {
+  width: 100%; font: inherit; font-family: var(--font-body); font-size: 1rem; color: var(--fg); background: var(--field-bg);
+  border: 1.5px solid var(--line); border-radius: 6px; padding: 11px 12px;
+}
+textarea { min-height: 160px; resize: vertical; }
+input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--signal); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+#form-status { font-size: 0.9375rem; color: var(--muted); min-width: 0; flex: 1 1 240px; }
+#form-status.ok { color: var(--accent); font-weight: 600; }
+#form-status.err { color: var(--signal); }
+
 /* Footer (also the contact block) */
 footer { background: var(--band-bg); color: var(--band-fg); padding-block: 56px 28px; }
 .foot-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 36px 32px; }
@@ -420,12 +444,65 @@ footer .brand small { color: var(--band-muted); }
         </div>
         <div>
           <p>We are glad to hear from experienced consultants and engineers. Send your resume and a short note about the work you do best.</p>
-          <p style="margin-top: 14px;"><code>info@ytglobalinc.com</code></p>
+          <p style="margin-top: 14px;"><code>info@ytglobalnetwork.com</code></p>
         </div>
       </div>
     </div>
   </section>
 
+  <section id="contact" class="wrap section" data-view="contact">
+    <div class="contact-grid">
+      <div>
+        <p class="eyebrow">Contact us</p>
+        <h2 style="margin-top: 12px;">Tell us about your project.</h2>
+        <p class="contact-lead">Share a few details and we will reply with questions or a proposed next step.</p>
+        <div class="contact-details">
+          <div>
+            <p class="eyebrow">Email</p>
+            <p><a href="mailto:info@ytglobalnetwork.com">info@ytglobalnetwork.com</a></p>
+          </div>
+          <div>
+            <p class="eyebrow">Phone</p>
+            <p><a href="tel:+18082718366">(808) 271-8366</a></p>
+          </div>
+          <div>
+            <p class="eyebrow">Office</p>
+            <address>YT Global Inc.<br>820 W 10th Street<br>Wilmington, DE 19801</address>
+          </div>
+        </div>
+      </div>
+      <form id="contact-form" novalidate>
+        <div class="row2">
+          <label for="f-name">Full name
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </label>
+          <label for="f-email">Work email
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </label>
+        </div>
+        <div class="row2">
+          <label for="f-phone">Phone (optional)
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+          </label>
+          <label for="f-company">Company
+            <input id="f-company" name="company" type="text" autocomplete="organization">
+          </label>
+        </div>
+        <label for="f-message">How can we help?
+          <textarea id="f-message" name="message" required></textarea>
+        </label>
+        <div class="hp" aria-hidden="true">
+          <label for="f-website">Leave this field empty
+            <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </label>
+        </div>
+        <div class="form-foot">
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <p id="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -455,9 +532,9 @@ footer .brand small { color: var(--band-muted); }
           <li><a href="#careers">Careers</a></li>
         </ul>
       </div>
-      <div id="contact">
+      <div>
         <h3>Contact us</h3>
-        <address>YT Global Inc.<br>820 W 10th Street<br>Wilmington, DE 19801<br><a href="tel:+18082718366">(808) 271-8366</a><br><a href="mailto:info@ytglobalinc.com">info@ytglobalinc.com</a></address>
+        <address>YT Global Inc.<br>820 W 10th Street<br>Wilmington, DE 19801<br><a href="tel:+18082718366">(808) 271-8366</a><br><a href="mailto:info@ytglobalnetwork.com">info@ytglobalnetwork.com</a></address>
       </div>
     </div>
     <div class="foot-base">
@@ -473,7 +550,7 @@ footer .brand small { color: var(--band-muted); }
   var tog = document.getElementById('vid-toggle');
   var tabs = document.querySelectorAll('.tabs a');
   var panels = document.querySelectorAll('[data-view]');
-  var VIEWS = ['industries', 'approach', 'careers'];
+  var VIEWS = ['industries', 'approach', 'careers', 'contact'];
   var HOME_ANCHORS = ['about', 'services'];
   var current = 'home';
   var active = 'home';
@@ -483,7 +560,6 @@ footer .brand small { color: var(--band-muted); }
     var jump = null;
     if (VIEWS.indexOf(h) > -1) { current = h; active = h; }
     else if (HOME_ANCHORS.indexOf(h) > -1) { current = 'home'; active = h; jump = h; }
-    else if (h === 'contact') { jump = 'contact'; }
     else { current = 'home'; active = 'home'; }
     for (var i = 0; i < panels.length; i++) {
       panels[i].hidden = panels[i].getAttribute('data-view') !== current;
@@ -498,6 +574,42 @@ footer .brand small { color: var(--band-muted); }
   }
   window.addEventListener('hashchange', function () { route(false); });
   route(true);
+
+  var EMAIL = 'info@ytglobalnetwork.com';
+  var ENDPOINT = ''; // optional: paste a form service URL (for example a Formspree endpoint) to receive submissions directly
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('form-status');
+  function setStatus(text, kind) { status.textContent = text; status.className = kind || ''; }
+  function val(id) { return document.getElementById(id).value.trim(); }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (val('f-website')) { return; }
+    var req = ['f-name', 'f-email', 'f-message'];
+    var bad = null;
+    req.forEach(function (id) {
+      var el = document.getElementById(id);
+      var ok = el.value.trim() && (id !== 'f-email' || /^\S+@\S+\.\S+$/.test(el.value.trim()));
+      el.setAttribute('aria-invalid', ok ? 'false' : 'true');
+      if (!ok && !bad) { bad = el; }
+    });
+    if (bad) { setStatus('Please fill in your name, a valid email and a message.', 'err'); bad.focus(); return; }
+    var data = { name: val('f-name'), email: val('f-email'), phone: val('f-phone'), company: val('f-company'), message: val('f-message') };
+    if (ENDPOINT) {
+      setStatus('Sending...');
+      fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) })
+        .then(function (r) {
+          if (!r.ok) { throw new Error('bad status'); }
+          form.reset();
+          setStatus('Thank you. We received your message and will reply soon.', 'ok');
+        })
+        .catch(function () { setStatus('Your message could not be sent. Please email ' + EMAIL + ' instead.', 'err'); });
+      return;
+    }
+    var subject = 'Website inquiry from ' + data.name + (data.company ? ' (' + data.company + ')' : '');
+    var body = data.message + '\n\n' + data.name + '\n' + data.email + (data.phone ? '\n' + data.phone : '') + (data.company ? '\n' + data.company : '');
+    setStatus('Opening your email app. If nothing opens, email us at ' + EMAIL + '.', 'ok');
+    window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
 
   function label(playing) { tog.textContent = playing ? 'Pause background' : 'Play background'; }
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
