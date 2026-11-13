@@ -253,7 +253,7 @@ footer .brand small { color: var(--band-muted); }
 </style>
 
 <header class="wrap top">
-  <a class="brand" href="#home" aria-label="YT Global Inc. home">
+  <a class="brand" href="/" aria-label="YT Global Inc. home">
     <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#0A5C6B"/><g fill="none" stroke="#fff" stroke-width="3.2"><circle cx="32" cy="32" r="19"/><ellipse cx="32" cy="32" rx="8.5" ry="19"/><path d="M13 32H51M16.5 22H47.5M16.5 42H47.5"/></g></svg>
     <span>YT Global</span><small>Inc.</small>
   </a>
@@ -513,7 +513,7 @@ footer .brand small { color: var(--band-muted); }
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="brand" href="#home" aria-label="YT Global Inc. home">
+        <a class="brand" href="/" aria-label="YT Global Inc. home">
           <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#0A5C6B"/><g fill="none" stroke="#fff" stroke-width="3.2"><circle cx="32" cy="32" r="19"/><ellipse cx="32" cy="32" rx="8.5" ry="19"/><path d="M13 32H51M16.5 22H47.5M16.5 42H47.5"/></g></svg>
           <span>YT Global</span><small>Inc.</small>
         </a>
@@ -614,6 +614,15 @@ footer .brand small { color: var(--band-muted); }
     setStatus('Opening your email app. If nothing opens, email us at ' + EMAIL + '.', 'ok');
     window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   });
+
+  var brands = document.querySelectorAll('.brand');
+  for (var b = 0; b < brands.length; b++) {
+    brands[b].addEventListener('click', function (e) {
+      e.preventDefault();
+      try { history.replaceState(null, '', location.pathname + location.search); } catch (err) {}
+      try { location.reload(); } catch (err) { window.scrollTo(0, 0); }
+    });
+  }
 
   function label(playing) { tog.textContent = playing ? 'Pause background' : 'Play background'; }
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
